@@ -27,5 +27,6 @@ public class GameManager : MonoBehaviour
         uimanager.UpdateScore();
     }
 
-    #endregion
+    #endregion  
+
 }
