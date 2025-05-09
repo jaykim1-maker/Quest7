@@ -12,8 +12,24 @@ public class Obstacles : MonoBehaviour
         gameManager = GameManager.Instance;
     }
 
-    private void OnTriggerEnter(Collider coin)
+    private bool DeadUpdate()
     {
-        
+        if (isDead) return true;
+        else return false;
     }
+
+    private void OnTriggerEnter(Collider collision)
+    {
+        Debug.Log("Triggerd Player is Dead");
+
+        if (collision.CompareTag("Player"))
+        {
+            isDead = true;
+            return;
+        }
+
+        else return;
+    }
+
+    
 }

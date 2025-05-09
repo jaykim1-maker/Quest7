@@ -8,6 +8,7 @@ TagManager:
   - Obstacle
   - BackGround
   - Ground
+  - Map
   layers:
   - Default
   - TransparentFX
