@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BgLooper : MonoBehaviour
 {
-    public int numBgCount = 5;
+    public int numBgCount = 2;
     public int mapCount = 0;
     public Vector3 mapLastPosition = Vector3.zero;
 
@@ -21,10 +21,10 @@ public class BgLooper : MonoBehaviour
 
         if (collision.CompareTag("Map"))
         {
-            float widthOfBgObject = ((BoxCollider2D)collision).size.x;
+            float widthOfBgObject = ((BoxCollider2D)collision).size.y;
             Vector3 pos = collision.transform.position;
 
-            pos.x += widthOfBgObject * numBgCount;
+            pos.y += widthOfBgObject * numBgCount;
             collision.transform.position = pos;
             return;
         }
