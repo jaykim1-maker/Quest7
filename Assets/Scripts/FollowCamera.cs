@@ -4,36 +4,31 @@ using UnityEngine;
 
 public class FollowCamera : MonoBehaviour
 {
-    public Transform target;
-
-    float offsetX;
-    float offsetY;
-
-    // 카메라가 따라가는 속도
-    public float followSpeed = 0.05f;
-
-
-    void Start()
-    {
-        if (target == null)
-            return;
-
-        offsetX = transform.position.x - target.position.x;
-        offsetY = transform.position.y - target.position.y;
-    }
+    public float followSpeed = 0.02f;         // 시작 속도
+    public float speedMultiplier = 1.02f;     // 몇 배로 증가할지
+    public float interval = 5f;              // 몇 초마다 증가할지
+    public float maxSpeed = 1.0f;
+    private float timer = 0f;                // 시간 누적용
 
     void Update()
     {
+        // 시간 누적
+        timer += Time.deltaTime;
+
+        // 5초마다 속도 증가
+        if (timer >= interval)
+        {
+            followSpeed *= speedMultiplier;
+            timer = 0f; // 타이머 초기화
+        }
+
         // 현재 위치 가져오기
         Vector3 pos = transform.position;
 
-        // Y축 방향으로 속도만큼 증가
+        // 속도 적용
         pos.y += followSpeed * Time.deltaTime;
 
         // 위치 적용
         transform.position = pos;
-
-
-
     }
 }
