@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class FollowCamera : MonoBehaviour
 {
-    public float followSpeed = 0.02f;         // 시작 속도
-    public float speedMultiplier = 1.02f;     // 몇 배로 증가할지
-    public float interval = 5f;              // 몇 초마다 증가할지
-    public float maxSpeed = 1.0f;
+    public float followSpeed = 0.03f;         // 시작 속도
+    public float speedMultiplier = 1.01f;     // 몇 배로 증가할지
+    public float interval = 10f;              // 몇 초마다 증가할지
+    public float maxSpeed = 1.0f;             //최대 속도
     private float timer = 0f;                // 시간 누적용
 
     void Update()
