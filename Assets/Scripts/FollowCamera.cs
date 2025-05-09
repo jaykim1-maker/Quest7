@@ -35,6 +35,8 @@ public class FollowCamera : MonoBehaviour
         // 대상 위치에 X, Y 오프셋을 더해서 새 위치를 만듬
         pos.x = target.position.x + offsetX;
         pos.y = target.position.y + offsetY;
+        pos.z = -10f; // 반드시 Z축 고정해 주세요
+
 
         // 카메라 위치 업데이트
         transform.position = pos;
