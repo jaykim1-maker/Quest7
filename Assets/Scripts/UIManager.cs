@@ -15,6 +15,8 @@ public class UIManager : MonoBehaviour
 
     public TextMeshProUGUI score;
 
+    private bool isGameOver = false;
+
     void Start()
     {
         gameOverPanel.SetActive(false);
@@ -41,7 +43,7 @@ public class UIManager : MonoBehaviour
         gameOverPanel.SetActive(true);
 
         int score = gameManager.score;
-        int bestScore = PlayerPrefs.GetInt(BestScore, 0);
+        int bestScore = PlayerPrefs.GetInt("BestScore", 0);
 
         if(score > bestScore)
         {
