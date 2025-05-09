@@ -24,6 +24,15 @@ public class Play : BaseController
         // 방향 벡터 만들고 정규화(속도 일정하게)
         movementDirection = new Vector2(horizontal, vertical).normalized;
 
+        // 2. 마우스 위치 받아오기
+        Vector2 mousePosition = Input.mousePosition;
+
+        // 마우스 위치를 "화면 좌표" → "월드 좌표"로 변환
+        Vector2 worldPos = camera.ScreenToWorldPoint(mousePosition);
+
+        // 3. 내 위치에서 마우스 방향을 계산
+        lookDirection = worldPos - (Vector2)transform.position;
+
         // 너무 가까우면 방향을 0으로 처리
         if (lookDirection.magnitude < 0.9f)
         {
