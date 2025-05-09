@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     [SerializeField] private UIManager uimanager;
 
+    public int score = 0;
 
     private void Awake()
     {
