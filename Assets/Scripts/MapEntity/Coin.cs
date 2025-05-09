@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.U2D;
 
 public class Coin : MonoBehaviour
 {
@@ -13,8 +14,12 @@ public class Coin : MonoBehaviour
 
     public void OnTriggerEnter(Collider collision)
     {
-        PlayerController player = collision.GetComponent<PlayerController>();
-        
+        if (collision.CompareTag("Player"))
+        {
+            Debug.Log("Add Score");
+
+            Destroy(gameObject);
+        }
         
     }
 }
