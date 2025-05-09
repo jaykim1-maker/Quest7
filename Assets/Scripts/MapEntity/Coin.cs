@@ -13,6 +13,8 @@ public class Coin : MonoBehaviour
 
     public void OnTriggerEnter(Collider collision)
     {
+        PlayerController player = collision.GetComponent<PlayerController>();
+        
         
     }
 }
