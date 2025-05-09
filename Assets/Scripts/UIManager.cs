@@ -20,7 +20,7 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         gameOverPanel.SetActive(false);
-        Time.timeScale = 1f;
+        Time.timeScale = 0f;
 
         if (restartButton != null)
         {
@@ -74,7 +74,7 @@ public class UIManager : MonoBehaviour
 
     void RestartGame()
     {
-        Time.timeScale = 1f;
+        Time.timeScale = 0f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
