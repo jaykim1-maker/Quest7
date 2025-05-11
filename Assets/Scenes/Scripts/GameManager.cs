@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-    [SerializeField] private UIManager uimanager;
+    [SerializeField] public UIManager uimanager;
 
     public int score = 0;
 

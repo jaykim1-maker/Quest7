@@ -39,6 +39,8 @@ public class UIManager : MonoBehaviour
 
     public void ShowGameOver()
     {
+        if (isGameOver) return;
+
         isGameOver = true;
         gameOverPanel.SetActive(true);
 
