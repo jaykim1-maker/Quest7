@@ -7,6 +7,8 @@ using UnityEngine.U2D;
 public class Coin : MonoBehaviour
 {
     GameManager gameManager;
+    public float mapLenth = 34f;
+    public int mapCount = 2;
 
     
     private void Start()
@@ -29,7 +31,7 @@ public class Coin : MonoBehaviour
 
             Vector3 pos = this.transform.position;
 
-            pos.y += 68f;
+            pos.y += (mapLenth * mapCount);
             this.transform.position = pos;
 
             //return
