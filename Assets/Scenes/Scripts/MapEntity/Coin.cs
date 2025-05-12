@@ -9,6 +9,7 @@ public class Coin : MonoBehaviour
 
     private void Start()
     {
+        GetComponentInChildren<Coin>();
         gameManager = GameManager.Instance;
     }
 
@@ -17,6 +18,8 @@ public class Coin : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             Debug.Log("Add Score");
+
+            //GameManager.uimanager.AddScore();
 
             Destroy(gameObject);
         }
