@@ -38,7 +38,7 @@ public class Player : MonoBehaviour
             {
                 if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
                 {
-                    // ê²Œìž„ ìž¬ì‹œìž‘
+                    // °ÔÀÓ Àç½ÃÀÛ
                 }
             }
             else
@@ -86,5 +86,5 @@ public class Player : MonoBehaviour
         animator.SetInteger("IsDie", 1);
         isDead = true;
         deathCooldown = 1f;
-    } 
+    } // ±êÇãºê Å×½ºÆ®
 }
