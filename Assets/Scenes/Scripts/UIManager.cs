@@ -5,6 +5,11 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+public enum UIState
+{
+    Home,
+}
+
 public class UIManager : MonoBehaviour
 {
     public GameObject gameOverPanel;
@@ -16,6 +21,17 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI score;
 
     private bool isGameOver = false;
+
+    HomeUI homeUI;
+    private UIState currentState;
+
+    private void Awake()
+    {
+        homeUI = GetComponentInChildren<HomeUI>(true);
+        homeUI.Init(this);
+
+        ChangeState(UIState.Home);
+    }
 
     void Start()
     {
@@ -65,7 +81,13 @@ public class UIManager : MonoBehaviour
 
     }
 
-     void Update()
+    public void ChangeState(UIState state)
+    {
+        currentState = state;
+        homeUI.SetActive(currentState);
+    }
+
+    void Update()
     {
  
     }
