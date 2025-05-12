@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.U2D;
 
@@ -7,13 +8,16 @@ public class Coin : MonoBehaviour
 {
     GameManager gameManager;
 
+    
     private void Start()
     {
-        GetComponentInChildren<Coin>();
+        gameObject.GetComponentInChildren<Collider2D>();
+        
         gameManager = GameManager.Instance;
     }
 
-    public void OnTriggerEnter(Collider collision)
+    
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
@@ -21,8 +25,14 @@ public class Coin : MonoBehaviour
 
             //GameManager.uimanager.AddScore();
 
-            Destroy(gameObject);
+            //Destroy(gameObject);
+
+            Vector3 pos = this.transform.position;
+
+            pos.y += 68f;
+            this.transform.position = pos;
+
+            //return
         }
-        
     }
 }
