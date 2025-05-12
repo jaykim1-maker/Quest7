@@ -9,6 +9,7 @@ public class Coin : MonoBehaviour
 
     private void Start()
     {
+        GetComponentInChildren<Coin>();
         gameManager = GameManager.Instance;
     }
 
