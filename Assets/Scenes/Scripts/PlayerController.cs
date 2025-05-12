@@ -21,10 +21,11 @@ public class PlayerController : BaseController
 
         if (Mathf.Abs(horizontal) > 0.01f)
         {
-            //ÁÂ¿ì ¹æÇâ¿¡ µû¶ó lookDirection °ªÀ» ¼³Á¤ÇÑ´Ù.
+            //ì¢Œìš° ë°©í–¥ì— ë”°ë¼ lookDirection ê°’ì„ ì„¤ì •í•œë‹¤.
             //(1,0), (-1,0)
             lookDirection = new Vector2(horizontal, 0).normalized;
         }
     }
+
 }
-// ±êÇãºê Å×½ºÆ®
+
