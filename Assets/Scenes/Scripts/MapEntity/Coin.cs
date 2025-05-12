@@ -19,6 +19,8 @@ public class Coin : MonoBehaviour
         {
             Debug.Log("Add Score");
 
+            //GameManager.uimanager.AddScore();
+
             Destroy(gameObject);
         }
         

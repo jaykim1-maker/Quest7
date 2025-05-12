@@ -16,6 +16,9 @@ public class DeadZone : MonoBehaviour
         if(collision.CompareTag("Player"))
         {
             Debug.Log("Player Dying was DeadZone");
+
+            //GameManager.player.HP = 0;
+
         }
     }
 
