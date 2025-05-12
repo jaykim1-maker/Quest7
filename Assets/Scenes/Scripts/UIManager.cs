@@ -61,6 +61,7 @@ public class UIManager : MonoBehaviour
     public void SetGameOver()
     {
         ChangeState(UIState.GameOver);
+        ShowGameOver();
     }
 
     public void ChangePlayerHP(float currentHP, float maxHP)
@@ -70,9 +71,9 @@ public class UIManager : MonoBehaviour
 
     public void CheckPlayerHP(int hp)
     {
-        if (hp <= 0)
+        if (hp <= 0 && !isGameOver)
         {
-            ShowGameOver();
+            SetGameOver();
         }
     }
 
@@ -91,7 +92,8 @@ public class UIManager : MonoBehaviour
             bestScore = score;
             PlayerPrefs.SetInt("BestScore", bestScore);
         }
-
+        scoreText.text = $"Score : {currentScore}";
+        bestScoreText.text = $"Best : {bestScore}";
 
     }
 
@@ -123,7 +125,7 @@ public class UIManager : MonoBehaviour
 
     void RestartGame()
     {
-        Time.timeScale = 0f;
+        Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
