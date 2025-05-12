@@ -9,6 +9,7 @@ TagManager:
   - BackGround
   - Ground
   - Map
+  - Looper
   layers:
   - Default
   - TransparentFX

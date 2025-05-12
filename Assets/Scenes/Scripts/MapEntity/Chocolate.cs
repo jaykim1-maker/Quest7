@@ -36,6 +36,5 @@ public class Chocolate : MonoBehaviour
 
             Destroy(gameObject);
         }
-
     }
 }

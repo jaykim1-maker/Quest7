@@ -14,7 +14,6 @@ public class Coin : MonoBehaviour
     private void Start()
     {
         gameObject.GetComponentInChildren<Collider2D>();
-        
         gameManager = GameManager.Instance;
     }
 
@@ -24,17 +23,11 @@ public class Coin : MonoBehaviour
         if (collision.CompareTag("Player"))  //플레이어와 충돌시
         {
             Debug.Log("Add Score");
-
+            Debug.Log("Add HP");
             //GameManager.uimanager.AddScore();
+            //GameManager.player.HP += CoinHP;
 
-            //Destroy(gameObject);
-
-            Vector3 pos = this.transform.position;  //이 오브젝트의 위치지정
-
-            pos.y += (mapLenth * mapCount);  //y좌표를 맵크기*맵갯수만큼 올리기
-            this.transform.position = pos;  //적용
-
-            //return
+            this.gameObject.SetActive(false);  //코인 오브젝트 액티브 종료
         }
     }
 }
