@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine;
 
 public class Player : MonoBehaviour
 {
@@ -16,18 +15,19 @@ public class Player : MonoBehaviour
     public bool godMode = false;
     public float moveSpeed = 3f;
 
-
     void Start()
     {
-        animator = GetComponentInChildren<Animator>();
         _rigidbody = transform.GetComponent<Rigidbody2D>();
-
-        if (animator == null) Debug.LogError("Animator°¡ ¾øÀ½");
-        if (_rigidbody == null) Debug.LogError("Rigidbody2D°¡ ¾øÀ½");
 
         if (_rigidbody == null)
         {
             Debug.LogError("Not Founded Rigidbody");
+        }
+
+        animator = transform.GetComponentInChildren<Animator>();
+        if (animator == null)
+        {
+            Debug.LogError("Not Founded Animator");
         }
     }
 
@@ -35,59 +35,42 @@ public class Player : MonoBehaviour
     {
         if (isDead) return;
 
-        // °È±â ÀÔ·Â °¨Áö
+        // ê±·ê¸° ìž…ë ¥
         float moveX = Input.GetAxisRaw("Horizontal");
         _rigidbody.velocity = new Vector2(moveX * moveSpeed, _rigidbody.velocity.y);
 
-        if (moveX != 0)
-        {
-            Vector3 scale = transform.localScale;
-            scale.x = Mathf.Abs(scale.x) * (moveX > 0 ? 1 : -1);
-            transform.localScale = scale;
-        }
-
-
-        if (animator != null)
-            animator.SetBool("IsRun", moveX != 0);
-
-
-
+        // ì í”„ ìž…ë ¥
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
         {
-            Debug.Log("FlapÅ° ÀÔ·ÂµÊ");
+            Debug.Log("Flapí‚¤ ìž…ë ¥ë¨");
             isFlap = true;
         }
-
-
-
     }
 
     public void FixedUpdate()
     {
-        if (isDead)
-            return;
-
+        if (isDead) return;
 
         if (isFlap)
         {
             _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, flapForce);
             isFlap = false;
         }
-    }
 
+        // ìºë¦­ ë°©í–¥ ì „í™˜
+        if (_rigidbody.velocity.x > 0.1f)
+            transform.localScale = new Vector3(1, 1, 1);
+        else if (_rigidbody.velocity.x < -0.1f)
+            transform.localScale = new Vector3(-1, 1, 1);
+    }
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        if (godMode)
-            return;
-
-        if (isDead)
-            return;
+        if (godMode) return;
+        if (isDead) return;
 
         animator.SetInteger("IsDie", 1);
         isDead = true;
         deathCooldown = 1f;
     }
-
-
 }
