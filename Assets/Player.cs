@@ -86,5 +86,5 @@ public class Player : MonoBehaviour
         animator.SetInteger("IsDie", 1);
         isDead = true;
         deathCooldown = 1f;
-    } // 깃허브 테스트
+    } 
 }
