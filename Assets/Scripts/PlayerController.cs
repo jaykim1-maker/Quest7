@@ -2,46 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Play : BaseController
+public class PlayerController : BaseController
 {
-    // ¸ŞÀÎ Ä«¸Ş¶ó¸¦ ÀúÀåÇÒ º¯¼ö
     private Camera camera;
 
-    // °ÔÀÓ ½ÃÀÛ ½Ã ½ÇÇàµÊ
     protected override void Start()
     {
-        base.Start(); // BaseControllerÀÇ Start ½ÇÇà
-        camera = Camera.main; // ¾À¿¡ ÀÖ´Â ¸ŞÀÎ Ä«¸Ş¶ó °¡Á®¿À±â
+        base.Start();
+        camera = Camera.main;
     }
 
-    // ÀÔ·ÂÀ» Ã³¸®ÇÏ´Â ÇÔ¼ö (BaseController¿¡¼­ È£ÃâµÊ)
     protected override void HandleAction()
     {
-        // 1. Å°º¸µå ¹æÇâÅ° (¶Ç´Â WASD) ÀÔ·Â ¹Ş±â
-        float horizontal = Input.GetAxisRaw("Horizontal"); // ÁÂ¿ì
-        float vertical = Input.GetAxisRaw("Vertical");     // »óÇÏ
+        float horizontal = Input.GetAxisRaw("Horizontal");
+        float vertical = Input.GetAxisRaw("Vertical");
 
-        // ¹æÇâ º¤ÅÍ ¸¸µé°í Á¤±ÔÈ­(¼Óµµ ÀÏÁ¤ÇÏ°Ô)
         movementDirection = new Vector2(horizontal, vertical).normalized;
 
-        // 2. ¸¶¿ì½º À§Ä¡ ¹Ş¾Æ¿À±â
-        Vector2 mousePosition = Input.mousePosition;
-
-        // ¸¶¿ì½º À§Ä¡¸¦ "È­¸é ÁÂÇ¥" ¡æ "¿ùµå ÁÂÇ¥"·Î º¯È¯
-        Vector2 worldPos = camera.ScreenToWorldPoint(mousePosition);
-
-        // 3. ³» À§Ä¡¿¡¼­ ¸¶¿ì½º ¹æÇâÀ» °è»ê
-        lookDirection = worldPos - (Vector2)transform.position;
-
-        // ³Ê¹« °¡±î¿ì¸é ¹æÇâÀ» 0À¸·Î Ã³¸®
-        if (lookDirection.magnitude < 0.9f)
+        if (Mathf.Abs(horizontal) > 0.01f)
         {
-            lookDirection = Vector2.zero;
-        }
-        else
-        {
-            // ¹æÇâ º¤ÅÍ¸¦ Á¤±ÔÈ­ (±æÀÌ 1·Î ¸¸µé±â)
-            lookDirection = lookDirection.normalized;
+            //ì¢Œìš° ë°©í–¥ì— ë”°ë¼ lookDirection ê°’ì„ ì„¤ì •í•œë‹¤.
+            //(1,0), (-1,0)
+            lookDirection = new Vector2(horizontal, 0).normalized;
         }
     }
+
 }
+
