@@ -87,15 +87,15 @@ public class UIManager : MonoBehaviour
         int score = gameManager.score;
         int bestScore = PlayerPrefs.GetInt("BestScore", 0);
 
-        if(score > bestScore)
+        if (score > bestScore)
         {
             bestScore = score;
             PlayerPrefs.SetInt("BestScore", bestScore);
         }
-        scoreText.text = $"Score : {currentScore}";
+        scoreText.text = $"Score : {score}";
         bestScoreText.text = $"Best : {bestScore}";
-
     }
+
 
     public void UpdateUI()
     {
