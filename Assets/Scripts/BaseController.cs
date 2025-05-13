@@ -41,7 +41,7 @@ public class BaseController : MonoBehaviour
     protected virtual void Update()
     {
         HandleAction();                 // 키 입력 등 처리
-        Rotate(LookDirection);         // 바라보는 방향에 따라 캐릭터 회전
+        Rotate(LookDirection);         // 바라보는 방향에 따라 캐릭터 회전asda
     }
 
     // 고정된 시간마다 실행됨 (물리 연산에 적합)
