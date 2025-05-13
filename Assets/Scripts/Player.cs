@@ -35,6 +35,8 @@ public class Player : MonoBehaviour
     }
     public void ApplySlowDebuff(float duration, float slowAmount)
     {
+        // duration: 디버프 지속 시간(초)
+        // slowAmount: 느려지는 비율 (0.5f면 50%로 느려짐)
         moveSpeed = originalSpeed * slowAmount;
         debuffTimer = duration;
     }
@@ -92,12 +94,5 @@ public class Player : MonoBehaviour
         deathCooldown = 1f;
     }
 
-    // duration: 디버프 지속 시간(초)
-    // slowAmount: 느려지는 비율 (0.5f면 50%로 느려짐)
-    public void ApplySlowDebuff(float duration, float slowAmount)
-    {
-        moveSpeed = originalSpeed * slowAmount; // 속도를 느리게 설정
-        debuffTimer = duration;                 // 디버프 지속 시간 설정
-    }
 }
 
