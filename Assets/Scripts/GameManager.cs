@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     [SerializeField] public UIManager uimanager;
+    private UIManager uiManager;
+    public static bool isFirstLoading = true;
 
     public int score = 0;
 
@@ -16,6 +18,24 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
         }
+        uiManager = FindObjectOfType<UIManager>();
+    }
+
+    private void Start()
+    {
+        if (!isFirstLoading)
+        {
+            StartGame();
+        }
+        else
+        {
+            isFirstLoading = false;
+        }
+    }
+
+    public void StartGame()
+    {
+        uiManager.SetPlayGame();
     }
     #region UIManager
     public void UpdateUI()

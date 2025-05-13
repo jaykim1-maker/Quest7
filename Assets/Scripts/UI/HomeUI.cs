@@ -15,9 +15,10 @@ public class HomeUI : BaseUI
         exitButton.onClick.AddListener(OnClickExitButton);
     }
 
+    //게임 매니저를 통해 게임시작
     public void OnClickStartButton()
     {
-        //GameManager.instance.StartGame();
+        GameManager.Instance.StartGame();
     }
 
     public void OnClickExitButton()
