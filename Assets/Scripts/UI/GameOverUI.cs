@@ -29,11 +29,13 @@ public class GameOverUI : BaseUI
         bestScoreText.text = bestScore.ToString();
     }
 
+    //현재 씬을 다시 로드 재시작
     public void OnClickRestartButton()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
+    //게임 종료
     public void OnClickExitButton()
     {
         Application.Quit();
