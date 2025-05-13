@@ -675,7 +675,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterRenderer: {fileID: 0}
-  weaponPivot: {fileID: 0}
 --- !u!1 &223940002
 GameObject:
   m_ObjectHideFlags: 0
@@ -1198,7 +1197,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &350491975
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1366,7 +1365,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &419079699
 Transform:
   m_ObjectHideFlags: 0
@@ -1698,7 +1697,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11cdf7033e5256343b6a5c919b091eed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  followSpeed: 0.5
+  followSpeed: 0.57
   speedMultiplier: 1.2
   maxSpeed: 1
   interval: 5
@@ -3818,6 +3817,8 @@ GameObject:
   m_Component:
   - component: {fileID: 803597028}
   - component: {fileID: 803597029}
+  - component: {fileID: 803597030}
+  - component: {fileID: 803597031}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -3854,6 +3855,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uimanager: {fileID: 419079700}
+  followCamera: {fileID: 0}
+  score: 0
+--- !u!114 &803597030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 803597027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11cdf7033e5256343b6a5c919b091eed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  followSpeed: 0.2
+  speedMultiplier: 1.05
+  maxSpeed: 1
+  interval: 5
+--- !u!114 &803597031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 803597027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7fb93d3d29b82f4980112cb20f2b85a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uimanager: {fileID: 0}
+  followCamera: {fileID: 0}
   score: 0
 --- !u!1 &807617004
 GameObject:
@@ -5241,7 +5274,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1202892634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9477,7 +9510,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1967796559
 Transform:
   m_ObjectHideFlags: 0
@@ -10090,7 +10123,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2118247905
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10104,8 +10137,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 350491975}
-  - {fileID: 281037373}
   - {fileID: 1927484824}
+  - {fileID: 281037373}
   m_Father: {fileID: 1202892637}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -10346,6 +10379,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -1.55
       objectReference: {fileID: 0}
+    - target: {fileID: 1591773310621468989, guid: 57993a53ce9c8a74081a149ad624dd92, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2183203009110318164, guid: 57993a53ce9c8a74081a149ad624dd92, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.23
@@ -10373,6 +10410,10 @@ PrefabInstance:
     - target: {fileID: 6532582324173496866, guid: 57993a53ce9c8a74081a149ad624dd92, type: 3}
       propertyPath: m_Name
       value: EasyFloor
+      objectReference: {fileID: 0}
+    - target: {fileID: 6532582324173496866, guid: 57993a53ce9c8a74081a149ad624dd92, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6899734029464670078, guid: 57993a53ce9c8a74081a149ad624dd92, type: 3}
       propertyPath: m_LocalPosition.x
