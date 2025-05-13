@@ -346,7 +346,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2197af22dc8ce141a39c8102122969d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD:Assets/Scripts/SampleScene.unity
   uiManager: {fileID: 0}
+=======
+>>>>>>> main:Assets/Scenes/SampleScene.unity
   hpSlider: {fileID: 651564526}
   scoreText: {fileID: 2113576717}
   bestScoreText: {fileID: 794834395}
@@ -645,7 +648,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &220662074
 Transform:
   m_ObjectHideFlags: 0
@@ -675,7 +678,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterRenderer: {fileID: 0}
+<<<<<<< HEAD:Assets/Scripts/SampleScene.unity
   weaponPivot: {fileID: 0}
+=======
+>>>>>>> main:Assets/Scenes/SampleScene.unity
 --- !u!1 &223940002
 GameObject:
   m_ObjectHideFlags: 0
@@ -702,7 +708,11 @@ Transform:
   m_GameObject: {fileID: 223940002}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+<<<<<<< HEAD:Assets/Scripts/SampleScene.unity
   m_LocalPosition: {x: -1.05, y: -1.34, z: 0}
+=======
+  m_LocalPosition: {x: -1.05, y: 5.33, z: 0}
+>>>>>>> main:Assets/Scenes/SampleScene.unity
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1281,7 +1291,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &419079699
 Transform:
   m_ObjectHideFlags: 0
@@ -1309,6 +1319,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d65d7e82e4028dd408d1b56976fe0ad0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameOverPanel: {fileID: 972425921}
+  scoreText: {fileID: 0}
+  bestScoreText: {fileID: 0}
+  gameManager: {fileID: 803597029}
+  restartButton: {fileID: 0}
   score: {fileID: 0}
 --- !u!1 &477299908
 GameObject:
@@ -1320,7 +1335,11 @@ GameObject:
   m_Component:
   - component: {fileID: 477299909}
   m_Layer: 0
+<<<<<<< HEAD:Assets/Scripts/SampleScene.unity
   m_Name: Coins
+=======
+  m_Name: EasyFloorCoins
+>>>>>>> main:Assets/Scenes/SampleScene.unity
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1334,7 +1353,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 477299908}
   serializedVersion: 2
+<<<<<<< HEAD:Assets/Scripts/SampleScene.unity
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+=======
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+>>>>>>> main:Assets/Scenes/SampleScene.unity
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1608,7 +1631,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11cdf7033e5256343b6a5c919b091eed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  followSpeed: 0.5
+  speedMultiplier: 1.2
+  maxSpeed: 1
+  interval: 5
 --- !u!1 &528394838
 GameObject:
   m_ObjectHideFlags: 0
@@ -3509,6 +3535,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uimanager: {fileID: 419079700}
+  score: 0
 --- !u!1 &807617004
 GameObject:
   m_ObjectHideFlags: 0
@@ -4363,11 +4390,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8121a125dc4661644931db15276d8444, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD:Assets/Scripts/SampleScene.unity
   uiManager: {fileID: 0}
+=======
+>>>>>>> main:Assets/Scenes/SampleScene.unity
   restartButton: {fileID: 2034745808}
   exitButton: {fileID: 1606924619}
   scoreText: {fileID: 1926280802}
   bestScoreText: {fileID: 1258660351}
+<<<<<<< HEAD:Assets/Scripts/SampleScene.unity
+=======
+--- !u!1 &1002662142 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5887531985436606882, guid: dc77d64a9b2f5564c98c2ca2391c4899, type: 3}
+  m_PrefabInstance: {fileID: 4707671145343915419}
+  m_PrefabAsset: {fileID: 0}
+>>>>>>> main:Assets/Scenes/SampleScene.unity
 --- !u!1001 &1022633610
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4559,6 +4597,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6485461172232225285, guid: dc77d64a9b2f5564c98c2ca2391c4899, type: 3}
   m_PrefabInstance: {fileID: 4707671145343915419}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1090440419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1002662142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3741ceaa41a08c049833698e29884ba1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coins: {fileID: 1792234612}
 --- !u!1 &1119787051
 GameObject:
   m_ObjectHideFlags: 0
@@ -4572,7 +4623,7 @@ GameObject:
   - component: {fileID: 1119787053}
   m_Layer: 0
   m_Name: DeadZone
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4878,7 +4929,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1202892634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4976,6 +5027,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d65d7e82e4028dd408d1b56976fe0ad0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD:Assets/Scripts/SampleScene.unity
+=======
+  gameOverPanel: {fileID: 0}
+  scoreText: {fileID: 0}
+  bestScoreText: {fileID: 0}
+  gameManager: {fileID: 0}
+  restartButton: {fileID: 0}
+>>>>>>> main:Assets/Scenes/SampleScene.unity
   score: {fileID: 0}
 --- !u!1001 &1210796778
 PrefabInstance:
@@ -7542,7 +7601,7 @@ GameObject:
   - component: {fileID: 1735780794}
   m_Layer: 0
   m_Name: BgLooper
-  m_TagString: Untagged
+  m_TagString: Looper
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7929,6 +7988,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 561907395551010137, guid: 3901414a24abe5d4fbc9583e30d14795, type: 3}
   m_PrefabInstance: {fileID: 1788643085}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD:Assets/Scripts/SampleScene.unity
+=======
+--- !u!1 &1792234612 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 391584233322000704, guid: dc77d64a9b2f5564c98c2ca2391c4899, type: 3}
+  m_PrefabInstance: {fileID: 4707671145343915419}
+  m_PrefabAsset: {fileID: 0}
+>>>>>>> main:Assets/Scenes/SampleScene.unity
 --- !u!1001 &1815319177
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8751,6 +8818,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1927484823}
   m_CullTransparentMesh: 1
+--- !u!1 &1932161469 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6532582324173496866, guid: 57993a53ce9c8a74081a149ad624dd92, type: 3}
+  m_PrefabInstance: {fileID: 7499886907942960958}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1959998071
 GameObject:
   m_ObjectHideFlags: 0
@@ -9489,7 +9561,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dbff79d710f4dc43adb730db186455b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD:Assets/Scripts/SampleScene.unity
   uiManager: {fileID: 0}
+=======
+>>>>>>> main:Assets/Scenes/SampleScene.unity
   startButton: {fileID: 281037374}
   exitButton: {fileID: 1927484825}
 --- !u!4 &2127952643 stripped
@@ -9497,6 +9572,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 980472667488660272, guid: 57993a53ce9c8a74081a149ad624dd92, type: 3}
   m_PrefabInstance: {fileID: 7499886907942960958}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2127952646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1932161469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3741ceaa41a08c049833698e29884ba1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coins: {fileID: 477299908}
 --- !u!1001 &4707671145343915419
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9505,6 +9593,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 359168342}
     m_Modifications:
+    - target: {fileID: 391584233322000704, guid: dc77d64a9b2f5564c98c2ca2391c4899, type: 3}
+      propertyPath: m_Name
+      value: NomalFloorCoins
+      objectReference: {fileID: 0}
     - target: {fileID: 5887531985436606882, guid: dc77d64a9b2f5564c98c2ca2391c4899, type: 3}
       propertyPath: m_Name
       value: NomalFloor
@@ -9633,7 +9725,14 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7964205883459034515, guid: dc77d64a9b2f5564c98c2ca2391c4899, type: 3}
       insertIndex: -1
       addedObject: {fileID: 72356478}
+<<<<<<< HEAD:Assets/Scripts/SampleScene.unity
     m_AddedComponents: []
+=======
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5887531985436606882, guid: dc77d64a9b2f5564c98c2ca2391c4899, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1090440419}
+>>>>>>> main:Assets/Scenes/SampleScene.unity
   m_SourcePrefab: {fileID: 100100000, guid: dc77d64a9b2f5564c98c2ca2391c4899, type: 3}
 --- !u!1001 &7499886907942960958
 PrefabInstance:
@@ -9774,7 +9873,14 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 980472667488660272, guid: 57993a53ce9c8a74081a149ad624dd92, type: 3}
       insertIndex: -1
       addedObject: {fileID: 477299909}
+<<<<<<< HEAD:Assets/Scripts/SampleScene.unity
     m_AddedComponents: []
+=======
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6532582324173496866, guid: 57993a53ce9c8a74081a149ad624dd92, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2127952646}
+>>>>>>> main:Assets/Scenes/SampleScene.unity
   m_SourcePrefab: {fileID: 100100000, guid: 57993a53ce9c8a74081a149ad624dd92, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

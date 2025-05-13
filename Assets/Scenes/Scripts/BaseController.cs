@@ -1,12 +1,16 @@
+<<<<<<< HEAD:Assets/Scripts/BaseController.cs
 using System.Collections;
 using System.Collections.Generic;
 using JetBrains.Annotations;
 using UnityEngine;
 
+=======
+>>>>>>> main:Assets/Scenes/Scripts/BaseController.cs
 using UnityEngine;
 
 public class BaseController : MonoBehaviour
 {
+<<<<<<< HEAD:Assets/Scripts/BaseController.cs
     // 캐릭터에 붙은 Rigidbody2D (물리 이동용)
     protected Rigidbody2D rigidbody;
 
@@ -51,11 +55,47 @@ public class BaseController : MonoBehaviour
 
         // 넉백 지속 시간 감소시키기
         if (knockbackDuration > 0f)
+=======
+    protected Rigidbody2D _rigidbody;
+
+    [SerializeField] private SpriteRenderer characterRenderer;
+
+    protected Vector2 movementDirection = Vector2.zero;
+    public Vector2 MovementDirection { get { return movementDirection; } }
+
+    protected Vector2 lookDirection = Vector2.zero;
+    public Vector2 LookDirection { get { return lookDirection; } }
+
+    private Vector2 knockback = Vector2.zero;
+    private float knockbackDuration = 0.0f;
+
+    protected virtual void Awake()
+    {
+        _rigidbody = GetComponent<Rigidbody2D>();
+    }
+
+    protected virtual void Start()
+    {
+
+    }
+
+    protected virtual void Update()
+    {
+        HandleAction();
+        Rotate(lookDirection);
+    }
+
+    protected virtual void FixedUpdate()
+    {
+        Movment(movementDirection);
+        if (knockbackDuration > 0.0f)
+>>>>>>> main:Assets/Scenes/Scripts/BaseController.cs
         {
             knockbackDuration -= Time.fixedDeltaTime;
         }
     }
 
+<<<<<<< HEAD:Assets/Scripts/BaseController.cs
     // 자식 클래스에서 오버라이드 할 수 있는 행동 처리 함수
     protected virtual void HandleAction()
     {
@@ -103,3 +143,39 @@ public class BaseController : MonoBehaviour
         knockback = (transform.position - other.position).normalized * knockbackPower;
     }
 }
+=======
+    protected virtual void HandleAction()
+    {
+
+    }
+
+    private void Movment(Vector2 direction)
+    {
+        direction = direction * 5;
+        if (knockbackDuration > 0.0f)
+        {
+            direction *= 0.2f;
+            direction += knockback;
+        }
+
+        _rigidbody.velocity = direction;
+    }
+
+    private void Rotate(Vector2 direction)
+    {
+        float rotZ = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        bool isLeft = Mathf.Abs(rotZ) > 90f;
+
+        characterRenderer.flipX = isLeft;
+
+
+    }
+
+    public void ApplyKnockback(Transform other, float power, float duration)
+    {
+        knockbackDuration = duration;
+        knockback = -(other.position - transform.position).normalized * power;
+    }
+}
+
+>>>>>>> main:Assets/Scenes/Scripts/BaseController.cs

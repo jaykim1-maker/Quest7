@@ -6,8 +6,9 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-    [SerializeField] private UIManager uimanager;
+    [SerializeField] public UIManager uimanager;
 
+    public int score = 0;
 
     private void Awake()
     {
@@ -29,4 +30,15 @@ public class GameManager : MonoBehaviour
 
     #endregion  
 
+    public void RestartGame()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);//게임이 재시작되면 시간을 초기화하고 처음화면을 불러온다
+    }
+
+    public void LoadMain()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("Main"); // 메인 메뉴 씬 이름에 맞게 수정
+    }
 }
