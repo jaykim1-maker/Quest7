@@ -4,16 +4,17 @@ public class Player : MonoBehaviour
 {
     Animator animator = null;
     Rigidbody2D _rigidbody = null;
-
-    public float flapForce = 8f;
-    public float forwardSpeed = 4f;
+    public float flapForce = 8f; //점프 높이
+    public float forwardSpeed = 4f; //이동속도
     public bool isDead = false;
     float deathCooldown = 0f;
 
     bool isFlap = false;
 
     public bool godMode = false;
-    public float moveSpeed = 3f;
+    public float moveSpeed = 4f;         // 이동 속도
+    private float originalSpeed;         // 디버프 복구
+    private float debuffTimer = 3f;      // 남은 디버프 시간
 
     void Start()
     {
@@ -29,11 +30,28 @@ public class Player : MonoBehaviour
         {
             Debug.LogError("Not Founded Animator");
         }
+
+        originalSpeed = moveSpeed; // 시작 시 원래 속도 저장
+    }
+    public void ApplySlowDebuff(float duration, float slowAmount)
+    {
+        moveSpeed = originalSpeed * slowAmount;
+        debuffTimer = duration;
     }
 
     void Update()
     {
         if (isDead) return;
+
+        // 디버프 타이머 관리
+        if (debuffTimer > 0f)
+        {
+            debuffTimer -= Time.deltaTime;
+            if (debuffTimer <= 0f)
+            {
+                moveSpeed = originalSpeed; // 디버프 끝나면 원래 속도로 복구
+            }
+        }
 
         // 걷기 입력
         float moveX = Input.GetAxisRaw("Horizontal");
@@ -73,4 +91,13 @@ public class Player : MonoBehaviour
         isDead = true;
         deathCooldown = 1f;
     }
+
+    // duration: 디버프 지속 시간(초)
+    // slowAmount: 느려지는 비율 (0.5f면 50%로 느려짐)
+    public void ApplySlowDebuff(float duration, float slowAmount)
+    {
+        moveSpeed = originalSpeed * slowAmount; // 속도를 느리게 설정
+        debuffTimer = duration;                 // 디버프 지속 시간 설정
+    }
 }
+

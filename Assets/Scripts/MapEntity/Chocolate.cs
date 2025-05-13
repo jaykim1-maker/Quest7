@@ -14,7 +14,7 @@ public class Chocolate : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
 
-        PlayerController player = other.GetComponent<PlayerController>();
+        Player player = other.GetComponent<Player>();
         if (player != null)
         {
             // 플레이어에 디버프
