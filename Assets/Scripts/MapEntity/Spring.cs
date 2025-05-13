@@ -6,10 +6,25 @@ public class Spring : MonoBehaviour
 {
     GameManager gameManager;
 
+    public GameObject spring;
+    public float minX, maxX;
+
     private void Start()
     {
-        gameManager = GameManager.Instance;
+        minX = -10; maxX = 10;
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Looper"))
+        {
+            Vector2 randomplace = new Vector2
+                (Random.Range(minX,maxX), Random.Range(this.transform.position.y + 34, this.transform.position.y + 68));
+            this.transform.position = randomplace;
+        }
+        
+    }
+
 
 
 }
