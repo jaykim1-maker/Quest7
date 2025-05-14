@@ -7,8 +7,6 @@ using UnityEngine.U2D;
 public class Coin : MonoBehaviour
 {
     GameManager gameManager;
-    public float mapLenth = 34f;  //맵크기
-    public int mapCount = 2;  //맵 갯수
 
     
     private void Start()
@@ -24,7 +22,8 @@ public class Coin : MonoBehaviour
         {
             Debug.Log("Add Score");
             Debug.Log("Add HP");
-            //GameManager.uimanager.AddScore();
+            GameManager.Instance.AddCoin();
+
             //GameManager.player.HP += CoinHP;
 
             this.gameObject.SetActive(false);  //코인 오브젝트 액티브 종료

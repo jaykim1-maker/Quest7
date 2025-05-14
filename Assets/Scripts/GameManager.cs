@@ -7,9 +7,17 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     [SerializeField] public UIManager uimanager;
+<<<<<<< HEAD
     [SerializeField] public FollowCamera followCamera;
+=======
+    private Player player;
+    private UIManager uiManager;
+    public static bool isFirstLoading = true;
+>>>>>>> main
 
     public int score = 0;
+    public int HP = 100;
+
 
     private void Awake()
     {
@@ -19,6 +27,26 @@ public class GameManager : MonoBehaviour
         }
     }
 
+<<<<<<< HEAD
+=======
+    private void Start()
+    {
+        if (!isFirstLoading)
+        {
+            StartGame();
+        }
+        else
+        {
+            isFirstLoading = false;
+        }
+    }
+
+    public void StartGame()
+    {
+        score = 0;
+        uiManager.SetPlayGame();
+    }
+>>>>>>> main
     #region UIManager
     public void UpdateUI()
     {
@@ -43,6 +71,7 @@ public class GameManager : MonoBehaviour
 
     public void RestartGame()
     {
+        score = 0;
         Time.timeScale = 1f;
         if (followCamera != null)
             followCamera.ResetCameraOnGameOver(); // 카메라 초기화
@@ -57,4 +86,17 @@ public class GameManager : MonoBehaviour
 
         SceneManager.LoadScene("Main"); // 메인 메뉴 씬 이름에 맞게 수정
     }
+<<<<<<< HEAD
 }
+=======
+
+    public void AddCoin()
+    {
+        score++;
+        HP += 5;
+        if (HP >= 100)
+            { HP = 100; }
+        Debug.Log(score);
+    }
+}
+>>>>>>> main
