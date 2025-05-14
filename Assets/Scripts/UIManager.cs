@@ -108,7 +108,10 @@ public class UIManager : MonoBehaviour
     {
         if (isGameOver) return;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of 9ab3efa (ì ìˆ˜ì¶”ê°€)
 
         isGameOver = true;
         gameOverPanel.SetActive(true);
@@ -127,6 +130,7 @@ public class UIManager : MonoBehaviour
             PlayerPrefs.SetInt("BestScore", bestScore);
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
         if (scoreText != null)
             scoreText.text = $"Score : {scoreValue}";
         if (bestScoreText != null)
@@ -135,6 +139,10 @@ public class UIManager : MonoBehaviour
         scoreText.text = $"Score : {score}";
         bestScoreText.text = $"Best : {bestScore}";
 >>>>>>> parent of bfe9841 (Merge pull request #25 from jaykim1-maker/UI)
+=======
+        scoreText.text = $"Score : {score}";
+        bestScoreText.text = $"Best : {bestScore}";
+>>>>>>> parent of 9ab3efa (ì ìˆ˜ì¶”ê°€)
     }
 
     public void UpdateUI()
@@ -160,10 +168,14 @@ public class UIManager : MonoBehaviour
     void Update()
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         // ÇÊ¿ä½Ã ±¸Çö
 =======
  
 >>>>>>> parent of bfe9841 (Merge pull request #25 from jaykim1-maker/UI)
+=======
+ 
+>>>>>>> parent of 9ab3efa (ì ìˆ˜ì¶”ê°€)
     }
 
     void RestartGame()
