@@ -9,11 +9,16 @@ public class GameManager : MonoBehaviour
     [SerializeField] public UIManager uimanager;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     [SerializeField] public FollowCamera followCamera;
 =======
     private Player player;
 =======
 >>>>>>> main
+=======
+    [SerializeField] public FollowCamera followCamera;
+=======
+>>>>>>> speed,LevelDifficulty
     private UIManager uiManager;
     public static bool isFirstLoading = true;
 >>>>>>> main
@@ -47,7 +52,11 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
         uiManager.SetPlayGame();
     }
+<<<<<<< HEAD
 >>>>>>> main
+=======
+
+>>>>>>> speed,LevelDifficulty
     #region UIManager
     public void UpdateUI()
     {
