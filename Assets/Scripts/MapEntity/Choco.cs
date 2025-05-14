@@ -16,24 +16,33 @@ public class Choco : MonoBehaviour
         minX = -10; maxX = 10;
     }
 
-    // 아이템을 먹을 때
+    
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Looper") || other.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
-            Vector2 randomplace = new Vector2
-                (Random.Range(minX, maxX), Random.Range(this.transform.position.y + 34, this.transform.position.y + 68));
+            Player player = other.GetComponent<Player>();
+            if (player != null)
+            {
+                //플레이어에게 디버프
+                player.ApplySlowDebuff(slowDuration, slowAmount);
+            }
+            Debug.Log("Choco On Trigger " + other.name);
+            //아이템을 먹으면 해당 아이템 위치에서 랜덤으로 다음맵에 스폰
+            Vector2 randomplace = new Vector2(
+                Random.Range(minX, maxX),
+                Random.Range(this.transform.position.y + 34, this.transform.position.y + 68)
+            );
             this.transform.position = randomplace;
         }
-
-        Player player = other.GetComponent<Player>();
-        if (player != null)
+        else if (other.CompareTag("Looper")) //루퍼에 닿으면 랜덤 위치로 스폰
         {
-            // 플레이어에 디버프
-            player.ApplySlowDebuff(slowDuration, slowAmount);
-
-            // 아이템(초콜릿) 오브젝트 파괴
-            Destroy(gameObject);
+            Debug.Log("Choco On Trigger " + other.name);
+            Vector2 randomplace = new Vector2(
+                Random.Range(minX, maxX),
+                Random.Range(this.transform.position.y + 68, this.transform.position.y + 102)
+            );
+            this.transform.position = randomplace;
         }
     }
 }
