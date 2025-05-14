@@ -645,7 +645,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &220662074
 Transform:
   m_ObjectHideFlags: 0
@@ -675,7 +675,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterRenderer: {fileID: 0}
-  weaponPivot: {fileID: 0}
 --- !u!1 &223940002
 GameObject:
   m_ObjectHideFlags: 0
@@ -3855,6 +3854,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uimanager: {fileID: 419079700}
   score: 0
+  HP: 100
 --- !u!1 &807617004
 GameObject:
   m_ObjectHideFlags: 0
@@ -5012,6 +5012,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a236a45f686e88498b39af1f6186a08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerTag: Player
 --- !u!1001 &1120110999
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5241,7 +5242,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1202892634
 MonoBehaviour:
   m_ObjectHideFlags: 0

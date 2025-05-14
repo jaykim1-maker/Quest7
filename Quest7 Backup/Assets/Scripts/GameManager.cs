@@ -7,16 +7,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     [SerializeField] public UIManager uimanager;
-<<<<<<< HEAD
-<<<<<<< HEAD
-    [SerializeField] public FollowCamera followCamera;
-=======
-    private Player player;
-=======
->>>>>>> main
     private UIManager uiManager;
     public static bool isFirstLoading = true;
->>>>>>> main
 
     public int score = 0;
 
@@ -26,10 +18,9 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
         }
+        uiManager = FindObjectOfType<UIManager>();
     }
 
-<<<<<<< HEAD
-=======
     private void Start()
     {
         if (!isFirstLoading)
@@ -47,7 +38,6 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
         uiManager.SetPlayGame();
     }
->>>>>>> main
     #region UIManager
     public void UpdateUI()
     {
@@ -58,49 +48,18 @@ public class GameManager : MonoBehaviour
     {
         uimanager.UpdateScore();
     }
+
     #endregion  
-
-    // 게임 오버 시 카메라 초기화
-    public void OnGameOver()
-    {
-        if (followCamera != null)
-            followCamera.ResetCameraOnGameOver(); // 카메라 초기화
-
-        // 게임 오버 처리 추가 (예: UI 표시, 일시정지 등)
-        Debug.Log("게임 오버! 카메라 위치 초기화 완료");
-    }
 
     public void RestartGame()
     {
         Time.timeScale = 1f;
-        if (followCamera != null)
-            followCamera.ResetCameraOnGameOver(); // 카메라 초기화
-
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);//게임이 재시작되면 시간을 초기화하고 처음화면을 불러온다
     }
+
     public void LoadMain()
     {
         Time.timeScale = 1f;
-        if (followCamera != null)
-            followCamera.ResetCameraOnGameOver(); // 카메라 초기화
-
         SceneManager.LoadScene("Main"); // 메인 메뉴 씬 이름에 맞게 수정
     }
-<<<<<<< HEAD
-<<<<<<< HEAD
 }
-=======
-
-    public void AddCoin()
-    {
-        score++;
-        HP += 5;
-        if (HP >= 100)
-            { HP = 100; }
-        Debug.Log(score);
-    }
-}
->>>>>>> main
-=======
-}
->>>>>>> main
