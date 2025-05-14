@@ -27,9 +27,12 @@ public class GameManager : MonoBehaviour
         uiManager = FindObjectOfType<UIManager>();
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> parent of 9ab3efa (점수추가)
+=======
+>>>>>>> parent of bfe9841 (Merge pull request #25 from jaykim1-maker/UI)
 
         if (_resourceController == null)
             _resourceController = FindObjectOfType<ResourceController>();
