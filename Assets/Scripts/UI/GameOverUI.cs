@@ -25,8 +25,8 @@ public class GameOverUI : BaseUI
 
     public void SetUI(int score, int bestScore)
     {
-        scoreText.text = score.ToString();
-        bestScoreText.text = bestScore.ToString();
+        scoreText.text = $"Score : {score}";
+        bestScoreText.text = $"Best : {bestScore}";
     }
 
     //현재 씬을 다시 로드 재시작

@@ -19,14 +19,11 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         if (Instance == null)
-        {
             Instance = this;
-        }
-        uiManager = FindObjectOfType<UIManager>();
 
+        uiManager = FindObjectOfType<UIManager>();
         if (_resourceController == null)
             _resourceController = FindObjectOfType<ResourceController>();
-        _resourceController = new ResourceController();
 
     }
 
@@ -79,8 +76,9 @@ public class GameManager : MonoBehaviour
             _resourceController.SetCurrentHealth(_resourceController.MaxHealth);
 
         coinCount += 1;
+        score += 1;
         Debug.Log("Coin: " + coinCount);
         // 필요하다면 UI 갱신 등 추가 작업
-        UpdateUI();
+        uiManager.UpdateScoreUI(score);
     }
 }
