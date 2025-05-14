@@ -31,9 +31,12 @@ public class GameManager : MonoBehaviour
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> parent of 9ab3efa (점수추가)
+=======
+>>>>>>> parent of bfe9841 (Merge pull request #25 from jaykim1-maker/UI)
 =======
 >>>>>>> parent of bfe9841 (Merge pull request #25 from jaykim1-maker/UI)
 =======

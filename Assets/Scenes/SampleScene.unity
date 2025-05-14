@@ -5477,6 +5477,7 @@ MonoBehaviour:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   gameManager: {fileID: 803597029}
   restartButton: {fileID: 2034745808}
   score: {fileID: 903760038}
@@ -5490,6 +5491,11 @@ MonoBehaviour:
   restartButton: {fileID: 0}
   score: {fileID: 0}
 >>>>>>> parent of 9ab3efa (점수추가)
+=======
+  gameManager: {fileID: 0}
+  restartButton: {fileID: 0}
+  score: {fileID: 0}
+>>>>>>> parent of bfe9841 (Merge pull request #25 from jaykim1-maker/UI)
 =======
   gameManager: {fileID: 0}
   restartButton: {fileID: 0}
