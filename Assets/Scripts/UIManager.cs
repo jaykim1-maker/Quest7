@@ -107,6 +107,12 @@ public class UIManager : MonoBehaviour
     public void ShowGameOver()
     {
         if (isGameOver) return;
+<<<<<<< HEAD
+=======
+
+        isGameOver = true;
+        gameOverPanel.SetActive(true);
+>>>>>>> parent of bfe9841 (Merge pull request #25 from jaykim1-maker/UI)
 
         isGameOver = true;
         if (gameOverPanel != null)
@@ -120,10 +126,15 @@ public class UIManager : MonoBehaviour
             bestScore = scoreValue;
             PlayerPrefs.SetInt("BestScore", bestScore);
         }
+<<<<<<< HEAD
         if (scoreText != null)
             scoreText.text = $"Score : {scoreValue}";
         if (bestScoreText != null)
             bestScoreText.text = $"Best : {bestScore}";
+=======
+        scoreText.text = $"Score : {score}";
+        bestScoreText.text = $"Best : {bestScore}";
+>>>>>>> parent of bfe9841 (Merge pull request #25 from jaykim1-maker/UI)
     }
 
     public void UpdateUI()
@@ -148,7 +159,11 @@ public class UIManager : MonoBehaviour
 
     void Update()
     {
+<<<<<<< HEAD
         // 필요시 구현
+=======
+ 
+>>>>>>> parent of bfe9841 (Merge pull request #25 from jaykim1-maker/UI)
     }
 
     void RestartGame()

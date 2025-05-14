@@ -81,4 +81,12 @@ public class ResourceController : MonoBehaviour
         else
             Debug.LogWarning("[체력] UIManager 연결 안 됨 (GameOver)");
     }
+<<<<<<< HEAD
+=======
+    public void SetCurrentHealth(float value)
+    {
+        CurrentHealth = value;
+    }
+
+>>>>>>> parent of bfe9841 (Merge pull request #25 from jaykim1-maker/UI)
 }

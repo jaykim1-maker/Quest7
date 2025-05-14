@@ -25,6 +25,14 @@ public class GameManager : MonoBehaviour
             Instance = this;
         }
         uiManager = FindObjectOfType<UIManager>();
+<<<<<<< HEAD
+=======
+
+        if (_resourceController == null)
+            _resourceController = FindObjectOfType<ResourceController>();
+        _resourceController = new ResourceController();
+
+>>>>>>> parent of bfe9841 (Merge pull request #25 from jaykim1-maker/UI)
     }
 
     private void Start()
