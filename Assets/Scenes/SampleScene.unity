@@ -151,8 +151,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 729405462}
+  m_Children: []
   m_Father: {fileID: 1967796559}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &39967513
@@ -3189,63 +3188,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 561907395551010137, guid: 3901414a24abe5d4fbc9583e30d14795, type: 3}
   m_PrefabInstance: {fileID: 723442275}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &729405461
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 729405462}
-  - component: {fileID: 729405463}
-  m_Layer: 0
-  m_Name: ChocoDestrroy
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &729405462
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 729405461}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 35872941}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &729405463
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 729405461}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e3f79f9e9d5eed4d9ba8072245a9e33, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chocoPrefab: {fileID: 4136721588891627659, guid: f10048a4cc867c44587c2b194ed0714c, type: 3}
-  minX: -8
-  maxX: 8
-  minY: -10
-  maxY: 120
-  chocoRadius: 0.5
-  overlapMask:
-    serializedVersion: 2
-    m_Bits: 0
-  baseChocoCount: 1
-  chocoIncreaseRate: 1
-  spawnIntervalY: 200
-  destroyBelowY: -10
 --- !u!1001 &739480282
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6103,6 +6045,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1443918180}
   m_CullTransparentMesh: 1
+--- !u!1 &1519586244
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1519586245}
+  - component: {fileID: 1519586246}
+  m_Layer: 0
+  m_Name: ChocoDestrroy
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1519586245
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1519586244}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.50571924, y: -0.32182777, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1967796559}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1519586246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1519586244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e3f79f9e9d5eed4d9ba8072245a9e33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chocoPrefab: {fileID: 4136721588891627659, guid: f10048a4cc867c44587c2b194ed0714c, type: 3}
+  minX: -8
+  maxX: 8
+  minY: -10
+  maxY: 120
+  chocoRadius: 0.5
+  overlapMask:
+    serializedVersion: 2
+    m_Bits: 0
+  baseChocoCount: 1
+  chocoIncreaseRate: 1
+  spawnIntervalY: 200
+  destroyBelowY: -10
 --- !u!1001 &1522270184
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9443,6 +9442,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 35872941}
+  - {fileID: 1519586245}
   - {fileID: 1226056445}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10226,8 +10226,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dbff79d710f4dc43adb730db186455b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startButton: {fileID: 281037374}
-  exitButton: {fileID: 1927484825}
 --- !u!4 &2127952643 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 980472667488660272, guid: 57993a53ce9c8a74081a149ad624dd92, type: 3}
