@@ -74,5 +74,27 @@ public class BaseController : MonoBehaviour
         knockbackDuration = duration;
         knockback = -(other.position - transform.position).normalized * power;
     }
+
+    public virtual void Death()
+    {
+        // 움직임 정지
+        _rigidbody.velocity = Vector3.zero;
+
+        // 죽은 효과 연출
+        foreach (SpriteRenderer renderer in transform.GetComponentsInChildren<SpriteRenderer>())
+        {
+            Color color = renderer.color;
+            color.a = 0.3f;
+            renderer.color = color;
+        }
+
+        // 모든 컴포넌트(스크립트 포함) 비활성화
+        foreach (Behaviour component in transform.GetComponentsInChildren<Behaviour>())
+        {
+            component.enabled = false;
+        }
+
+        Destroy(gameObject, 2f);
+    }
 }
 
