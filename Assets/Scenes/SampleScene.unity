@@ -640,9 +640,11 @@ GameObject:
   - component: {fileID: 220662077}
   - component: {fileID: 220662076}
   - component: {fileID: 220662078}
+  - component: {fileID: 220662080}
+  - component: {fileID: 220662079}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -752,6 +754,32 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 0
+--- !u!114 &220662079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 220662073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fc842ca1e3eeaa47bc49f80607ed8de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+--- !u!114 &220662080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 220662073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ff3fd3f1aa454d4daa2ee835a6fd3aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiManager: {fileID: 1202892638}
 --- !u!1 &259903951
 GameObject:
   m_ObjectHideFlags: 0
@@ -3551,6 +3579,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uimanager: {fileID: 419079700}
   score: 0
+  coinCount: 0
 --- !u!1 &807617004
 GameObject:
   m_ObjectHideFlags: 0
@@ -4965,7 +4994,7 @@ GameObject:
   - component: {fileID: 1119787053}
   m_Layer: 0
   m_Name: DeadZone
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5042,6 +5071,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a236a45f686e88498b39af1f6186a08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerTag: Player
 --- !u!1001 &1120110999
 PrefabInstance:
   m_ObjectHideFlags: 0
