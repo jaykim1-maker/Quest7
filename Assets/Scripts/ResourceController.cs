@@ -13,6 +13,7 @@ public class ResourceController : MonoBehaviour
 
     public float CurrentHealth { get; private set; }
     public float MaxHealth => statHandler.Health;
+    private bool isDead = false;
 
     private void Awake()
     {
@@ -65,6 +66,19 @@ public class ResourceController : MonoBehaviour
 
     private void Death()
     {
+        if (isDead) return;
+        isDead = true;
+
         baseController.Death();
+        StartCoroutine(ShowGameOverDelayed());
+    }
+
+    private IEnumerator ShowGameOverDelayed()
+    {
+        yield return new WaitForSeconds(1f); // 1초 대기
+        if (uiManager != null)
+            uiManager.SetGameOver();
+        else
+            Debug.LogWarning("[체력] UIManager 연결 안 됨 (GameOver)");
     }
 }
