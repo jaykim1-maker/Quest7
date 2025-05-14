@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     [SerializeField] public FollowCamera followCamera;
 =======
     private Player player;
@@ -22,9 +23,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] public FollowCamera followCamera;
 =======
 >>>>>>> speed,LevelDifficulty
+=======
+
+    [SerializeField] public FollowCamera followCamera;
+
+>>>>>>> speed,LevelDifficulty
     private UIManager uiManager;
     public static bool isFirstLoading = true;
->>>>>>> main
+
 
     public int score = 0;
     public int coinCount = 0; // 코인 개수 변수 추가

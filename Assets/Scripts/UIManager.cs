@@ -32,25 +32,37 @@ public class UIManager : MonoBehaviour
     private void Awake()
     {
         homeUI = GetComponentInChildren<HomeUI>(true);
-        homeUI.Init(this);
+        if (homeUI != null) homeUI.Init(this);
+        else Debug.LogError("HomeUI가 씬에 없습니다!");
+
         gameUI = GetComponentInChildren<GameUI>(true);
-        gameUI.Init(this);
+        if (gameUI != null) gameUI.Init(this);
+        else Debug.LogError("GameUI가 씬에 없습니다!");
+
         gameOverUI = GetComponentInChildren<GameOverUI>(true);
-        gameOverUI.Init(this);
+        if (gameOverUI != null) gameOverUI.Init(this);
+        else Debug.LogError("GameOverUI가 씬에 없습니다!");
 
         ChangeState(UIState.Home);
     }
 
     void Start()
     {
-        gameOverPanel.SetActive(false);
+        if (gameOverPanel != null)
+            gameOverPanel.SetActive(false);
+        else
+            Debug.LogError("gameOverPanel이 연결되어 있지 않습니다!");
+
         Time.timeScale = 0f;
 
         if (restartButton != null)
         {
             restartButton.onClick.AddListener(RestartGame);
         }
-
+        else
+        {
+            Debug.LogError("restartButton이 연결되어 있지 않습니다!");
+        }
     }
 
     public void SetPlayGame()
@@ -78,7 +90,10 @@ public class UIManager : MonoBehaviour
 
     public void ChangePlayerHP(float currentHP, float maxHP)
     {
-        gameUI.UpdateHPSlider(currentHP / maxHP);
+        if (gameUI != null)
+            gameUI.UpdateHPSlider(currentHP / maxHP);
+        else
+            Debug.LogError("gameUI가 null입니다!");
     }
 
     public void CheckPlayerHP(int hp)
@@ -94,50 +109,55 @@ public class UIManager : MonoBehaviour
         if (isGameOver) return;
 
         isGameOver = true;
-        gameOverPanel.SetActive(true);
+        if (gameOverPanel != null)
+            gameOverPanel.SetActive(true);
 
-        int score = gameManager.score;
+        int scoreValue = gameManager != null ? gameManager.score : 0;
         int bestScore = PlayerPrefs.GetInt("BestScore", 0);
 
-        if (score > bestScore)
+        if (scoreValue > bestScore)
         {
-            bestScore = score;
+            bestScore = scoreValue;
             PlayerPrefs.SetInt("BestScore", bestScore);
         }
-        scoreText.text = $"Score : {score}";
-        bestScoreText.text = $"Best : {bestScore}";
+        if (scoreText != null)
+            scoreText.text = $"Score : {scoreValue}";
+        if (bestScoreText != null)
+            bestScoreText.text = $"Best : {bestScore}";
     }
-
 
     public void UpdateUI()
     {
+<<<<<<< HEAD
         gameOverPanel.SetActive(false);        
+=======
+        if (gameOverPanel != null)
+            gameOverPanel.SetActive(false);
+        Time.timeScale = 0f;
+>>>>>>> speed,LevelDifficulty
     }
 
     public void UpdateScore()
     {
-
+        // 구현 필요시 작성
     }
 
     public void ChangeState(UIState state)
     {
         currentState = state;
-        homeUI.SetActive(currentState);
-        gameUI.SetActive(currentState);
-        gameOverUI.SetActive(currentState);
+        if (homeUI != null) homeUI.SetActive(currentState);
+        if (gameUI != null) gameUI.SetActive(currentState);
+        if (gameOverUI != null) gameOverUI.SetActive(currentState);
     }
 
     void Update()
     {
- 
+        // 필요시 구현
     }
-
-
 
     void RestartGame()
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
-
 }
