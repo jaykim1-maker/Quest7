@@ -22,15 +22,7 @@ public class Spring : MonoBehaviour
                 (Random.Range(minX,maxX), Random.Range(this.transform.position.y + 34, this.transform.position.y + 68));
             this.transform.position = randomplace;
         }
-
-        if (collision.CompareTag("Player"))
-        {
-            Rigidbody2D rb = collision.GetComponent<Rigidbody2D>();
-            if (rb != null)
-            {
-                rb.AddForce(Vector2.up * 500f);
-            }
-        }
+        
     }
 
 
