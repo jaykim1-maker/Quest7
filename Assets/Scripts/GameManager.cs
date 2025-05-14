@@ -6,13 +6,11 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-
     [SerializeField] public UIManager uimanager;
     private UIManager uiManager;
     public static bool isFirstLoading = true;
 
     public int score = 0;
-    public int coinCount = 0; // 코인 개수 변수 추가
 
     private void Awake()
     {
@@ -50,6 +48,7 @@ public class GameManager : MonoBehaviour
     {
         uimanager.UpdateScore();
     }
+
     #endregion  
 
     public void RestartGame()
@@ -62,14 +61,5 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("Main"); // 메인 메뉴 씬 이름에 맞게 수정
-    }
-
-    // === 여기에 AddCoin 함수 추가 ===
-    public void AddCoin()
-    {
-        coinCount += 1;
-        Debug.Log("Coin: " + coinCount);
-        // 필요하다면 UI 갱신 등 추가 작업
-        UpdateUI();
     }
 }
