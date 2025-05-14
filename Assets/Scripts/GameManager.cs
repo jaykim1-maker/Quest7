@@ -8,12 +8,12 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     [SerializeField] public UIManager uimanager;
-<<<<<<< HEAD
+
     [SerializeField] public FollowCamera followCamera;
-=======
+
     private UIManager uiManager;
     public static bool isFirstLoading = true;
->>>>>>> main
+
 
     public int score = 0;
     public int coinCount = 0; // 코인 개수 변수 추가
