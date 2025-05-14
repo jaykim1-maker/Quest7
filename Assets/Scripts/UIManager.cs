@@ -15,8 +15,8 @@ public enum UIState
 public class UIManager : MonoBehaviour
 {
     public GameObject gameOverPanel;
-    public Text scoreText;
-    public Text bestScoreText;
+    public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI bestScoreText;
     public GameManager gameManager;
     public Button restartButton;
 
@@ -89,10 +89,14 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void UpdateScoreUI(int score)
+    {
+        gameUI.SetScore(score);
+    }
+
     public void ShowGameOver()
     {
         if (isGameOver) return;
-
         isGameOver = true;
         gameOverPanel.SetActive(true);
 
@@ -103,9 +107,10 @@ public class UIManager : MonoBehaviour
         {
             bestScore = score;
             PlayerPrefs.SetInt("BestScore", bestScore);
+            PlayerPrefs.Save(); // 저장을 즉시 반영
         }
-        scoreText.text = $"Score : {score}";
-        bestScoreText.text = $"Best : {bestScore}";
+
+        gameOverUI.SetUI(score, bestScore);
     }
 
 
@@ -129,7 +134,7 @@ public class UIManager : MonoBehaviour
 
     void Update()
     {
- 
+        gameUI.SetScore(gameManager.score);
     }
 
 
