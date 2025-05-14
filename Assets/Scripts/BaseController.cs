@@ -3,6 +3,7 @@ using UnityEngine;
 public class BaseController : MonoBehaviour
 {
     protected Rigidbody2D _rigidbody;
+    protected StatHandler statHandler;
 
     [SerializeField] private SpriteRenderer characterRenderer;
 
@@ -18,6 +19,7 @@ public class BaseController : MonoBehaviour
     protected virtual void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
+        statHandler = GetComponent<StatHandler>();
     }
 
     protected virtual void Start()
