@@ -22,7 +22,6 @@ public class PlayerController : MonoBehaviour
 
         // 이동 처리
         rb.velocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);
-        Debug.Log(rb.velocity.x);
 
         // 좌우 반전
         if (moveInput > 0)
