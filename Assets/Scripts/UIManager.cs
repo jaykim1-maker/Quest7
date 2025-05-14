@@ -56,6 +56,14 @@ public class UIManager : MonoBehaviour
     public void SetPlayGame()
     {
         ChangeState(UIState.Game);
+
+        ResourceController playerResource = FindObjectOfType<ResourceController>();
+        if (playerResource != null)
+        {
+            playerResource.StartContinuousDamage();
+        }
+
+        Time.timeScale = 1f;
     }
 
     public void SetGameOver()
