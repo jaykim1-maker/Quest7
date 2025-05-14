@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+
     [SerializeField] public UIManager uimanager;
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -24,6 +25,7 @@ public class GameManager : MonoBehaviour
 >>>>>>> main
 
     public int score = 0;
+    public int coinCount = 0; // 코인 개수 변수 추가
 
     private void Awake()
     {
@@ -97,6 +99,7 @@ public class GameManager : MonoBehaviour
     }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 }
 =======
 
@@ -111,5 +114,17 @@ public class GameManager : MonoBehaviour
 }
 >>>>>>> main
 =======
+}
+>>>>>>> main
+=======
+
+    // === 여기에 AddCoin 함수 추가 ===
+    public void AddCoin()
+    {
+        coinCount += 1;
+        Debug.Log("Coin: " + coinCount);
+        // 필요하다면 UI 갱신 등 추가 작업
+        UpdateUI();
+    }
 }
 >>>>>>> main
