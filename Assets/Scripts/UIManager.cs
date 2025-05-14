@@ -111,8 +111,7 @@ public class UIManager : MonoBehaviour
 
     public void UpdateUI()
     {
-        gameOverPanel.SetActive(false);
-        Time.timeScale = 0f;
+        gameOverPanel.SetActive(false);        
     }
 
     public void UpdateScore()
