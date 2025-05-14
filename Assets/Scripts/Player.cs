@@ -93,6 +93,6 @@ public class Player : MonoBehaviour
         isDead = true;
         deathCooldown = 1f;
     }
-
+    //1
 }
 
