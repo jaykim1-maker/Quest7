@@ -4,7 +4,13 @@ using UnityEngine;
 
 public class PlayerController : BaseController
 {
+    private GameManager gameManager;
     private Camera camera;
+
+    public void Init(GameManager gameManager)
+    {
+        this.gameManager = gameManager;
+    }
 
     protected override void Start()
     {
@@ -27,7 +33,10 @@ public class PlayerController : BaseController
         }
     }
 
-
+    public override void Death()
+    {
+        base.Death();
+    }
 
 
 
