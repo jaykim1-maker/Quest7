@@ -1,44 +1,63 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : BaseController
+public class PlayerController : MonoBehaviour
 {
-    private GameManager gameManager;
-    private Camera camera;
+    public float moveSpeed = 5f;
+    public float jumpForce = 10f;
+    public LayerMask groundLayer;
 
-    public void Init(GameManager gameManager)
+    private Rigidbody2D rb;
+    private Animator animator;
+    private bool isGrounded;
+
+    void Start()
     {
-        this.gameManager = gameManager;
+        rb = GetComponent<Rigidbody2D>();
+        animator = GetComponentInChildren<Animator>();
     }
 
-    protected override void Start()
+    void Update()
     {
-        base.Start();
-        camera = Camera.main;
-    }
+        float moveInput = Input.GetAxisRaw("Horizontal");
 
-    protected override void HandleAction()
-    {
-        float horizontal = Input.GetAxisRaw("Horizontal");
-        float vertical = Input.GetAxisRaw("Vertical");
+        // 이동 처리
+        rb.velocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);
+        Debug.Log(rb.velocity.x);
 
-        movementDirection = new Vector2(horizontal, vertical).normalized;
+        // 좌우 반전
+        if (moveInput > 0)
+            transform.localScale = new Vector3(1, 1, 1);
+        else if (moveInput < 0)
+            transform.localScale = new Vector3(-1, 1, 1);
 
-        if (Mathf.Abs(horizontal) > 0.01f)
+        // 점프
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
-            //좌우 방향에 따라 lookDirection 값을 설정한다.
-            //(1,0), (-1,0)
-            lookDirection = new Vector2(horizontal, 0).normalized;
+            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         }
+
+        // 애니메이션 파라미터
+        animator.SetBool("IsMove", Mathf.Abs(moveInput) > 0.01f);
+        // animator.SetBool("IsJump", !isGrounded);
     }
 
-    public override void Death()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        base.Death();
+        if (collision.gameObject.CompareTag("Ground"))
+            isGrounded = true;
     }
 
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+            isGrounded = false;
+    }
+
+    void LateUpdate()
+    {
+        // X 방향(flip 방향)은 그대로 두고, Y,Z만 1로 고정
+        transform.localScale = new Vector3(transform.localScale.x, 1, 1);
+    }
 
 
 }
-
