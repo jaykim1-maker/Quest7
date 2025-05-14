@@ -81,6 +81,16 @@ public class BaseController : MonoBehaviour
         knockback = -(other.position - transform.position).normalized * power;
     }
 
+    public void Death()
+    {
+        // 예시: 사망 처리 로직
+        Debug.Log($"{gameObject.name} is dead.");
+
+        // 사망 처리 예시
+        gameObject.SetActive(false);
+    }
+
+
 
 }
 
