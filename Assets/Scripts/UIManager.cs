@@ -68,8 +68,12 @@ public class UIManager : MonoBehaviour
 
     public void SetGameOver()
     {
+        if (isGameOver) return;
+        isGameOver = true;
+
         ChangeState(UIState.GameOver);
         ShowGameOver();
+        Time.timeScale = 0f;
     }
 
     public void ChangePlayerHP(float currentHP, float maxHP)
