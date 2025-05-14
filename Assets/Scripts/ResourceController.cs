@@ -11,7 +11,7 @@ public class ResourceController : MonoBehaviour
     private float timeSinceLastChange = float.MaxValue;
     public UIManager uiManager;
 
-    public float CurrentHealth { get; private set; }
+    public float CurrentHealth { get; set; }
     public float MaxHealth => statHandler.Health;
     private bool isDead = false;
 
@@ -81,12 +81,18 @@ public class ResourceController : MonoBehaviour
         else
             Debug.LogWarning("[체력] UIManager 연결 안 됨 (GameOver)");
     }
-<<<<<<< HEAD
-=======
     public void SetCurrentHealth(float value)
     {
-        CurrentHealth = value;
+        CurrentHealth = Mathf.Clamp(value, 0, MaxHealth);
+
+        if (uiManager != null)
+        {
+            uiManager.ChangePlayerHP(CurrentHealth, MaxHealth); // 슬라이더 갱신
+        }
+        else
+        {
+            Debug.LogWarning("UIManager가 연결되어 있지 않습니다.");
+        }
     }
 
->>>>>>> parent of bfe9841 (Merge pull request #25 from jaykim1-maker/UI)
 }

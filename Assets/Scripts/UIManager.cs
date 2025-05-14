@@ -15,8 +15,8 @@ public enum UIState
 public class UIManager : MonoBehaviour
 {
     public GameObject gameOverPanel;
-    public Text scoreText;
-    public Text bestScoreText;
+    public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI bestScoreText;
     public GameManager gameManager;
     public Button restartButton;
 
@@ -32,37 +32,25 @@ public class UIManager : MonoBehaviour
     private void Awake()
     {
         homeUI = GetComponentInChildren<HomeUI>(true);
-        if (homeUI != null) homeUI.Init(this);
-        else Debug.LogError("HomeUI∞° æ¿ø° æ¯Ω¿¥œ¥Ÿ!");
-
+        homeUI.Init(this);
         gameUI = GetComponentInChildren<GameUI>(true);
-        if (gameUI != null) gameUI.Init(this);
-        else Debug.LogError("GameUI∞° æ¿ø° æ¯Ω¿¥œ¥Ÿ!");
-
+        gameUI.Init(this);
         gameOverUI = GetComponentInChildren<GameOverUI>(true);
-        if (gameOverUI != null) gameOverUI.Init(this);
-        else Debug.LogError("GameOverUI∞° æ¿ø° æ¯Ω¿¥œ¥Ÿ!");
+        gameOverUI.Init(this);
 
         ChangeState(UIState.Home);
     }
 
     void Start()
     {
-        if (gameOverPanel != null)
-            gameOverPanel.SetActive(false);
-        else
-            Debug.LogError("gameOverPanel¿Ã ø¨∞·µ«æÓ ¿÷¡ˆ æ Ω¿¥œ¥Ÿ!");
-
+        gameOverPanel.SetActive(false);
         Time.timeScale = 0f;
 
         if (restartButton != null)
         {
             restartButton.onClick.AddListener(RestartGame);
         }
-        else
-        {
-            Debug.LogError("restartButton¿Ã ø¨∞·µ«æÓ ¿÷¡ˆ æ Ω¿¥œ¥Ÿ!");
-        }
+
     }
 
     public void SetPlayGame()
@@ -90,10 +78,7 @@ public class UIManager : MonoBehaviour
 
     public void ChangePlayerHP(float currentHP, float maxHP)
     {
-        if (gameUI != null)
-            gameUI.UpdateHPSlider(currentHP / maxHP);
-        else
-            Debug.LogError("gameUI∞° null¿‘¥œ¥Ÿ!");
+        gameUI.UpdateHPSlider(currentHP / maxHP);
     }
 
     public void CheckPlayerHP(int hp)
@@ -104,143 +89,60 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void UpdateScoreUI(int score)
+    {
+        gameUI.SetScore(score);
+    }
+
     public void ShowGameOver()
     {
         if (isGameOver) return;
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> parent of 9ab3efa (Ï†êÏàòÏ∂îÍ∞Ä)
-=======
->>>>>>> parent of bfe9841 (Merge pull request #25 from jaykim1-maker/UI)
-=======
->>>>>>> parent of bfe9841 (Merge pull request #25 from jaykim1-maker/UI)
-=======
->>>>>>> parent of bfe9841 (Merge pull request #25 from jaykim1-maker/UI)
-=======
->>>>>>> parent of bfe9841 (Merge pull request #25 from jaykim1-maker/UI)
-=======
->>>>>>> parent of bfe9841 (Merge pull request #25 from jaykim1-maker/UI)
-
         isGameOver = true;
         gameOverPanel.SetActive(true);
->>>>>>> parent of bfe9841 (Merge pull request #25 from jaykim1-maker/UI)
 
-        isGameOver = true;
-        if (gameOverPanel != null)
-            gameOverPanel.SetActive(true);
-
-        int scoreValue = gameManager != null ? gameManager.score : 0;
+        int score = gameManager.score;
         int bestScore = PlayerPrefs.GetInt("BestScore", 0);
 
-        if (scoreValue > bestScore)
+        if (score > bestScore)
         {
-            bestScore = scoreValue;
+            bestScore = score;
             PlayerPrefs.SetInt("BestScore", bestScore);
+            PlayerPrefs.Save(); // ¿˙¿Â¿ª ¡ÔΩ√ π›øµ
         }
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        if (scoreText != null)
-            scoreText.text = $"Score : {scoreValue}";
-        if (bestScoreText != null)
-            bestScoreText.text = $"Best : {bestScore}";
-=======
-        scoreText.text = $"Score : {score}";
-        bestScoreText.text = $"Best : {bestScore}";
->>>>>>> parent of bfe9841 (Merge pull request #25 from jaykim1-maker/UI)
-=======
-        scoreText.text = $"Score : {score}";
-        bestScoreText.text = $"Best : {bestScore}";
->>>>>>> parent of 9ab3efa (Ï†êÏàòÏ∂îÍ∞Ä)
-=======
-        scoreText.text = $"Score : {score}";
-        bestScoreText.text = $"Best : {bestScore}";
->>>>>>> parent of bfe9841 (Merge pull request #25 from jaykim1-maker/UI)
-=======
-        scoreText.text = $"Score : {score}";
-        bestScoreText.text = $"Best : {bestScore}";
->>>>>>> parent of bfe9841 (Merge pull request #25 from jaykim1-maker/UI)
-=======
-        scoreText.text = $"Score : {score}";
-        bestScoreText.text = $"Best : {bestScore}";
->>>>>>> parent of bfe9841 (Merge pull request #25 from jaykim1-maker/UI)
-=======
-        scoreText.text = $"Score : {score}";
-        bestScoreText.text = $"Best : {bestScore}";
->>>>>>> parent of bfe9841 (Merge pull request #25 from jaykim1-maker/UI)
-=======
-        scoreText.text = $"Score : {score}";
-        bestScoreText.text = $"Best : {bestScore}";
->>>>>>> parent of bfe9841 (Merge pull request #25 from jaykim1-maker/UI)
+
+        gameOverUI.SetUI(score, bestScore);
     }
+
 
     public void UpdateUI()
     {
-        if (gameOverPanel != null)
-            gameOverPanel.SetActive(false);
-        Time.timeScale = 0f;
+        gameOverPanel.SetActive(false);        
     }
 
     public void UpdateScore()
     {
-        // ±∏«ˆ « ø‰Ω√ ¿€º∫
+
     }
 
     public void ChangeState(UIState state)
     {
         currentState = state;
-        if (homeUI != null) homeUI.SetActive(currentState);
-        if (gameUI != null) gameUI.SetActive(currentState);
-        if (gameOverUI != null) gameOverUI.SetActive(currentState);
+        homeUI.SetActive(currentState);
+        gameUI.SetActive(currentState);
+        gameOverUI.SetActive(currentState);
     }
 
     void Update()
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        // « ø‰Ω√ ±∏«ˆ
-=======
- 
->>>>>>> parent of bfe9841 (Merge pull request #25 from jaykim1-maker/UI)
-=======
- 
->>>>>>> parent of 9ab3efa (Ï†êÏàòÏ∂îÍ∞Ä)
-=======
- 
->>>>>>> parent of bfe9841 (Merge pull request #25 from jaykim1-maker/UI)
-=======
- 
->>>>>>> parent of bfe9841 (Merge pull request #25 from jaykim1-maker/UI)
-=======
- 
->>>>>>> parent of bfe9841 (Merge pull request #25 from jaykim1-maker/UI)
-=======
- 
->>>>>>> parent of bfe9841 (Merge pull request #25 from jaykim1-maker/UI)
-=======
- 
->>>>>>> parent of bfe9841 (Merge pull request #25 from jaykim1-maker/UI)
+        gameUI.SetScore(gameManager.score);
     }
+
+
 
     void RestartGame()
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+
 }
