@@ -18,6 +18,8 @@ public class ResourceController : MonoBehaviour
     {
         statHandler = GetComponent<StatHandler>();
         baseController = GetComponent<BaseController>();
+        if (uiManager == null)
+            uiManager = FindObjectOfType<UIManager>();
     }
 
     private void Start()
@@ -28,19 +30,14 @@ public class ResourceController : MonoBehaviour
     // 체력 변경 피해 또는 회복
     public bool ChangeHealth(float change)
     {
-        // 체력 적용
         CurrentHealth += change;
-        CurrentHealth = CurrentHealth > MaxHealth ? MaxHealth : CurrentHealth;
         CurrentHealth = Mathf.Clamp(CurrentHealth, 0, MaxHealth);
-
-        FindObjectOfType<UIManager>().ChangePlayerHP(CurrentHealth, MaxHealth);
 
         if (uiManager != null)
             uiManager.ChangePlayerHP(CurrentHealth, MaxHealth);
         else
             Debug.LogWarning("[체력] UIManager 연결 안 됨");
 
-        // 체력이 0 이하가 되면 사망 처리
         if (CurrentHealth <= 0f)
         {
             Death();
@@ -65,7 +62,6 @@ public class ResourceController : MonoBehaviour
             damageCoroutine = StartCoroutine(ApplyContinuousDamage(5f));
         }
     }
-
 
     private void Death()
     {
