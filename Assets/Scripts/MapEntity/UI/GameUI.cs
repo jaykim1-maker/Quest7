@@ -12,9 +12,10 @@ public class GameUI : BaseUI
 
     private void Start()
     {
-        UpdateHPSlider(1);
+        UpdateHPSlider(1); // 시작시 체력바 100%
     }
 
+    //체력 슬라이더 값을 퍼센트로 설정
     public void UpdateHPSlider(float percentage)
     {
         hpSlider.value = percentage;
