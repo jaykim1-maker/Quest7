@@ -15,8 +15,8 @@ public enum UIState
 public class UIManager : MonoBehaviour
 {
     public GameObject gameOverPanel;
-    public Text scoreText;
-    public Text bestScoreText;
+    public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI bestScoreText;
     public GameManager gameManager;
     public Button restartButton;
 
@@ -32,37 +32,25 @@ public class UIManager : MonoBehaviour
     private void Awake()
     {
         homeUI = GetComponentInChildren<HomeUI>(true);
-        if (homeUI != null) homeUI.Init(this);
-        else Debug.LogError("HomeUI가 씬에 없습니다!");
-
+        homeUI.Init(this);
         gameUI = GetComponentInChildren<GameUI>(true);
-        if (gameUI != null) gameUI.Init(this);
-        else Debug.LogError("GameUI가 씬에 없습니다!");
-
+        gameUI.Init(this);
         gameOverUI = GetComponentInChildren<GameOverUI>(true);
-        if (gameOverUI != null) gameOverUI.Init(this);
-        else Debug.LogError("GameOverUI가 씬에 없습니다!");
+        gameOverUI.Init(this);
 
         ChangeState(UIState.Home);
     }
 
     void Start()
     {
-        if (gameOverPanel != null)
-            gameOverPanel.SetActive(false);
-        else
-            Debug.LogError("gameOverPanel이 연결되어 있지 않습니다!");
-
+        gameOverPanel.SetActive(false);
         Time.timeScale = 0f;
 
         if (restartButton != null)
         {
             restartButton.onClick.AddListener(RestartGame);
         }
-        else
-        {
-            Debug.LogError("restartButton이 연결되어 있지 않습니다!");
-        }
+
     }
 
     public void SetPlayGame()
@@ -90,10 +78,7 @@ public class UIManager : MonoBehaviour
 
     public void ChangePlayerHP(float currentHP, float maxHP)
     {
-        if (gameUI != null)
-            gameUI.UpdateHPSlider(currentHP / maxHP);
-        else
-            Debug.LogError("gameUI가 null입니다!");
+        gameUI.UpdateHPSlider(currentHP / maxHP);
     }
 
     public void CheckPlayerHP(int hp)
@@ -104,30 +89,34 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void UpdateScoreUI(int score)
+    {
+        gameUI.SetScore(score);
+    }
+
     public void ShowGameOver()
     {
         if (isGameOver) return;
-
         isGameOver = true;
-        if (gameOverPanel != null)
-            gameOverPanel.SetActive(true);
+        gameOverPanel.SetActive(true);
 
-        int scoreValue = gameManager != null ? gameManager.score : 0;
+        int score = gameManager.score;
         int bestScore = PlayerPrefs.GetInt("BestScore", 0);
 
-        if (scoreValue > bestScore)
+        if (score > bestScore)
         {
-            bestScore = scoreValue;
+            bestScore = score;
             PlayerPrefs.SetInt("BestScore", bestScore);
+            PlayerPrefs.Save(); // 저장을 즉시 반영
         }
-        if (scoreText != null)
-            scoreText.text = $"Score : {scoreValue}";
-        if (bestScoreText != null)
-            bestScoreText.text = $"Best : {bestScore}";
+
+        gameOverUI.SetUI(score, bestScore);
     }
+
 
     public void UpdateUI()
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
         gameOverPanel.SetActive(false);        
 =======
@@ -135,29 +124,35 @@ public class UIManager : MonoBehaviour
             gameOverPanel.SetActive(false);
         Time.timeScale = 0f;
 >>>>>>> speed,LevelDifficulty
+=======
+        gameOverPanel.SetActive(false);        
+>>>>>>> main
     }
 
     public void UpdateScore()
     {
-        // 구현 필요시 작성
+
     }
 
     public void ChangeState(UIState state)
     {
         currentState = state;
-        if (homeUI != null) homeUI.SetActive(currentState);
-        if (gameUI != null) gameUI.SetActive(currentState);
-        if (gameOverUI != null) gameOverUI.SetActive(currentState);
+        homeUI.SetActive(currentState);
+        gameUI.SetActive(currentState);
+        gameOverUI.SetActive(currentState);
     }
 
     void Update()
     {
-        // 필요시 구현
+        gameUI.SetScore(gameManager.score);
     }
+
+
 
     void RestartGame()
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+
 }
