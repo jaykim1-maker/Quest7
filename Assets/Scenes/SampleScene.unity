@@ -3579,6 +3579,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uimanager: {fileID: 419079700}
+  GameOverUI: {fileID: 972425921}
+  HomeUI: {fileID: 2118247904}
   score: 0
   coinCount: 0
 --- !u!114 &803597030
@@ -5097,6 +5099,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a236a45f686e88498b39af1f6186a08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerTag: Player
 --- !u!1001 &1120110999
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5326,7 +5329,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1202892634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8180,6 +8183,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba7238c35be55c2468010935e5351911, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  numBgCount: 2
+  mapCount: 0
+  mapLastPosition: {x: 0, y: 0, z: 0}
+  playerTag: Player
 --- !u!61 &1735780794
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10226,6 +10233,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dbff79d710f4dc43adb730db186455b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startButton: {fileID: 281037374}
+  exitButton: {fileID: 1927484825}
 --- !u!4 &2127952643 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 980472667488660272, guid: 57993a53ce9c8a74081a149ad624dd92, type: 3}
