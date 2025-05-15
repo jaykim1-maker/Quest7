@@ -89,9 +89,9 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void UpdateScoreUI(int score)
+    public void UpdateScoreUI(int score,int bestScore)
     {
-        gameUI.SetScore(score);
+        gameUI.SetScore(score, bestScore);
     }
 
     public void ShowGameOver()
@@ -134,7 +134,7 @@ public class UIManager : MonoBehaviour
 
     void Update()
     {
-        gameUI.SetScore(gameManager.score);
+        gameUI.SetScore(gameManager.score, gameManager.bestScore);
     }
 
 

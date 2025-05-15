@@ -25,8 +25,9 @@ public class GameOverUI : BaseUI
 
     public void SetUI(int score, int bestScore)
     {
-        scoreText.text = $"Score : {score}";
-        bestScoreText.text = $"Best : {bestScore}";
+        scoreText.text = $"{score}";
+        bestScoreText.text = $"{bestScore}";
+        Debug.Log(score);
     }
 
     //현재 씬을 다시 로드 재시작

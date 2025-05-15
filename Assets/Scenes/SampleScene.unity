@@ -3578,10 +3578,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7fb93d3d29b82f4980112cb20f2b85a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uimanager: {fileID: 419079700}
+  uimanager: {fileID: 1202892638}
   GameOverUI: {fileID: 972425921}
   HomeUI: {fileID: 2118247904}
   score: 0
+  bestScore: 0
   coinCount: 0
 --- !u!114 &803597030
 MonoBehaviour:

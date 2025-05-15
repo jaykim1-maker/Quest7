@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     public static bool isFirstLoading = true;
 
     public int score = 0;
+    public int bestScore = 0;
     public int coinCount = 0; // 코인 개수 변수 추가
 
     private void Awake()
@@ -91,6 +92,6 @@ public class GameManager : MonoBehaviour
         score += 1;
         Debug.Log("Coin: " + coinCount);
         // 필요하다면 UI 갱신 등 추가 작업
-        uiManager.UpdateScoreUI(score);
+        uiManager.UpdateScoreUI(score, bestScore);
     }
 }

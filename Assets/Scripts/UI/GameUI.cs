@@ -34,12 +34,11 @@ public class GameUI : BaseUI
         bestScoreText.text = bestScore.ToString();
     }
 
-    public void SetScore(int score)
+    public void SetScore(int score,int bestScore)
     {
-        if (scoreText != null)
-            scoreText.text = $"{score}";
-        else
-            Debug.LogError("scoreText가 연결되지 않았습니다.");
+        scoreText.text = $"{score}";
+        bestScoreText.text = $"{bestScore}";
+        Debug.Log(score);
     }
 
     protected override UIState GetUIState()
