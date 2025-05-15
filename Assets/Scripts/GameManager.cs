@@ -10,8 +10,6 @@ public class GameManager : MonoBehaviour
 
 
     [SerializeField] public UIManager uimanager;
-    [SerializeField] GameObject GameOverUI;
-    [SerializeField] GameObject HomeUI;
     private UIManager uiManager;
     public static bool isFirstLoading = true;
 
@@ -39,16 +37,6 @@ public class GameManager : MonoBehaviour
         {
             isFirstLoading = false;
         }
-    }
-
-    private void Update()
-    {
-        if (GameOverUI.activeSelf == true)
-            Time.timeScale = 0f;
-        else if (HomeUI.activeSelf == true)
-            Time.timeScale = 0f;
-        else
-            Time.timeScale = 1f;
     }
 
     public void StartGame()
